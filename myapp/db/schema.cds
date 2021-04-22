@@ -1,4 +1,4 @@
-namespace myapp.products;
+namespace sap.capire.products;
 
 using { Currency, cuid, managed, sap.common.CodeList } from '@sap/cds/common';
 

@@ -22,12 +22,12 @@ public class CatalogServiceITestV4 {
 	@Autowired
 	private MockMvc mockMvc;
 
-//	@Test
-//	public void testReadBooks() throws Exception {
+	@Test
+	public void testReadBooks() throws Exception {
 //		mockMvc.perform(MockMvcRequestBuilders.get("/odata/v4/CatalogService/Books")).andExpect(status().isOk())
 //				.andExpect(jsonPath("$.value[0].title").value(containsString("Wuthering Heights")))
 //				.andExpect(jsonPath("$.value[0].stock").value(100))
 //				.andExpect(jsonPath("$.value[1].title").value(containsString("Jane Eyre (discounted)")))
 //				.andExpect(jsonPath("$.value[1].stock").value(500));
-//	}
+	}
 }

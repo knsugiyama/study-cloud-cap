@@ -7,8 +7,6 @@ import java.util.stream.Stream;
 import org.junit.Before;
 import org.junit.Test;
 
-import cds.gen.catalogservice.Books;
-
 public class CatalogServiceHandlerTest {
 
 //	private CatalogServiceHandler handler = new CatalogServiceHandler();
