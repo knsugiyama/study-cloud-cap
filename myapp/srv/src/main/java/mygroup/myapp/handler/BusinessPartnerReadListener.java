@@ -7,8 +7,9 @@ import com.sap.cds.services.handler.EventHandler;
 import com.sap.cds.services.handler.annotations.On;
 import com.sap.cds.services.handler.annotations.ServiceName;
 import com.sap.cloud.sdk.cloudplatform.connectivity.DestinationAccessor;
-import com.sap.cloud.sdk.cloudplatform.connectivity.HttpDestination;
 import com.sap.cloud.sdk.odatav2.connectivity.ODataException;
+import com.sap.cloud.sdk.s4hana.connectivity.DefaultErpHttpDestination;
+import com.sap.cloud.sdk.s4hana.connectivity.ErpHttpDestination;
 import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.businesspartner.BusinessPartner;
 import com.sap.cloud.sdk.s4hana.datamodel.odata.services.BusinessPartnerService;
 import com.sap.cloud.sdk.s4hana.datamodel.odata.services.DefaultBusinessPartnerService;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -25,9 +28,16 @@ import org.springframework.stereotype.Component;
 @ServiceName("cloud.sdk.capng")
 public class BusinessPartnerReadListener implements EventHandler {
 
+  private static final Logger logger = LoggerFactory.getLogger(BusinessPartnerReadListener.class);
+
   // BTP上に定義するDestinationを定義する?
-  private final HttpDestination httpDestination = DestinationAccessor.getDestination("MyErpSystem")
-      .asHttp();
+//  private final HttpDestination httpDestination = DestinationAccessor.getDestination("MyErpSystem")
+//      .asHttp();
+
+  // ERPへ繋がる設定も入れられる様子
+  private final ErpHttpDestination httpDestination = DestinationAccessor
+      .getDestination("bupa")
+      .asHttp().decorate(DefaultErpHttpDestination::new);
 
   /**
    * S/4のBusinessPartnerの最初の10件を返却する。Onアノテーションを使用することでイベント制御することができる
@@ -44,7 +54,7 @@ public class BusinessPartnerReadListener implements EventHandler {
             .executeRequest(httpDestination);
 
     final List<cds.gen.cloud.sdk.capng.CapBusinessPartner> capBusinessPartners =
-        convertS4BusinessPartnersToCapBusinessPartners(businessPartners, "MyErpSystem");
+        convertS4BusinessPartnersToCapBusinessPartners(businessPartners, "bupa");
 
     capBusinessPartners.forEach(capBusinessPartner -> {
       result.put(capBusinessPartner.getId(), capBusinessPartner);
