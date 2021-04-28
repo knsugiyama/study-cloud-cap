@@ -41,6 +41,25 @@
 			<groupId>com.sap.cds</groupId>
 			<artifactId>cds-starter-cloudfoundry</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.sap.cds</groupId>
+			<artifactId>cds-integration-cloud-sdk</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.sap.cloud.sdk.cloudplatform/scp-cf -->
+		<dependency>
+			<groupId>com.sap.cloud.sdk.cloudplatform</groupId>
+			<artifactId>scp-cf</artifactId>
+			<version>3.43.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.sap.cloud.sdk.s4hana/s4hana-all -->
+		<dependency>
+			<groupId>com.sap.cloud.sdk.s4hana</groupId>
+			<artifactId>s4hana-all</artifactId>
+			<version>3.43.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
