@@ -50,7 +50,7 @@ public class BusinessPartnerReadListener implements EventHandler {
 
     final Map<Object, Map<String, Object>> result = new HashMap<>();
     final List<BusinessPartner> businessPartners =
-        new DefaultBusinessPartnerService().getAllBusinessPartner().top(10)
+        new DefaultBusinessPartnerService().getAllBusinessPartner().top(50)
             .executeRequest(httpDestination);
 
     final List<cds.gen.cloud.sdk.capng.CapBusinessPartner> capBusinessPartners =
