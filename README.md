@@ -1,7 +1,7 @@
-# study-sap-cap-cloud
+# study-sap-cap-cloud-connect-onpremise-hana
 
 https://developers.sap.com/tutorials/cloudsdk-integrate-cap.html と
-https://developers.sap.com/tutorials/s4sdk-odata-service-cloud-foundry.html を参考にアプリを作ってみる
+https://developers.sap.com/tutorials/s4sdk-odata-service-cloud-foundry.html を参考に、オンプレ上のS/4 HANAのデータを取得するアプリを作ってみる
 
 ## 前提条件
 
